@@ -5,30 +5,27 @@ import { Info } from './Info';
 import { Pokedex } from './Pokedex';
 
 
-export class ListaPokemon extends React.Component {
+export class Lists extends React.Component {
 
     constructor(props){
       super(props);
     }
   
     render() {
-      return <div className='lists'>
+      console.log('sono su lista')
+      return <div className='lis'>
         <p className='pageNumber'>{this.props.offset / 20} / 55</p>
-      
-      <div className='list'>
-        {this.props.list.map((poke, index) => ( 
-          <p 
-            className='lista'
-            onClick={() => {
-              this.props.onSelected(poke);
-            }}
-            key={index}>
-              {poke.name}
-          </p>
-        ))}
-      </div>
-      
-      <div className='page'>
+      {this.props.list.map((poke, index) => ( 
+        <p 
+          className='list'
+          onClick={() => {
+            this.props.onSelected(poke);
+          }}
+          key={index}>
+            {poke.name}
+        </p>
+      ))}
+      <div className='pag'>
           
           <p onClick={() =>{
             if(this.props.offset / 20 == 0){
@@ -60,5 +57,5 @@ export class ListaPokemon extends React.Component {
   
   };
 
-
+  ReactDOM.render(<Lists />, document.getElementById('lists'))
   
